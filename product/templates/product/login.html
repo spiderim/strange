@@ -1,0 +1,51 @@
+{%extends 'base.html' %}
+
+{%block content %}
+
+
+
+ <br>
+  <div style="text-align:center;border: 0px solid rgb(0,8,90); background-color: #e1d788; border-radius: 10px">
+<h1 style="color: blue;"><b>LOGIN</b></h1>
+
+<div style="align-items: center;">
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<br/>
+
+<form method="POST" action="{% url 'login' %}" >
+  {% csrf_token %}
+
+ <h5 style="color: blue;">Email:</h5>
+  <input style="background-color: coral; width: 90%;" type="text" name='username' placeholder='email' />
+  <br/>
+  <h5 style="color: blue;">Password:</h5>
+  <input style="background-color: coral;width: 90%;" type="password" name="password" placeholder="password" />
+  <br/>
+  <br/>
+  <input class="btn btn-primary" type="submit" value="LOGIN!"/>
+  <br/>
+ 
+
+ 
+
+
+</form>
+
+ <br/>
+  <hr>
+  <a style="color: red;" href="{%url 'reset_password'%}"><b>forgot password click here!</b></a>
+  <br>
+  <br>
+
+</div>
+
+
+
+{%endblock%}

@@ -1,0 +1,53 @@
+
+{%extends 'base.html' %}
+
+
+{%block content %}
+
+
+
+ <br>
+  <div style="text-align:center;border: 0px solid rgb(0,8,90); background-color: #e1d788; border-radius: 10px">
+<h1 style="color: blue;"><b>SIGNUP</b></h1>
+
+<div style="align-items: center;">
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<br/>
+
+<form method="POST" action="{% url 'signup' %}" >
+  {% csrf_token %}
+
+ <h5 style="color: blue;">Name:</h5>
+  <input style="background-color: coral; width: 90%;" type="text" name="name" placeholder="name" />
+  <br/>
+ <h5 style="color: blue;">Email:</h5>
+  <input style="background-color: coral; width: 90%;" type='email' name="email" placeholder="email" />
+  <br/>
+  <h5 style="color: blue;">Password:</h5>
+  <input style="background-color: coral;width: 90%;" type="password" name="password" placeholder="password" />
+  <br/>
+  <h5 style="color: blue;">Confirm Password:</h5>
+  <input style="background-color: coral;width: 90%;" type="password" name="cpassword" placeholder="confirm password" />
+  <br/>
+  <br/>
+  <input class="btn btn-primary" type="submit" value="SIGNUP!"/>
+  <br/>
+ 
+  <br>
+
+ 
+
+
+</form>
+</div>
+
+
+
+{%endblock%}
